@@ -35,7 +35,7 @@
 
 //  This provided by Express. No need to install.
 
-//         1.  express.json()	          - Parses incoming JSON requests
+//         1.  express.json()	            - Parses incoming JSON requests
 //         2.  express.urlencoded()	      - Parses URL-encoded form data (from HTML forms)
 //         3.  express.static()	          - Serves static files like HTML, CSS, images
 
@@ -134,6 +134,23 @@
 
 
 
+// We can't call next() after res.send. If we call, it wont work. Eg:- 
+// If we write middle ware 1. Then call next, it move to either next middleware or router.
+// if the order is like,
+//         middleware 1-> middleware 2 -> middleware 3 -> router. This will work in order,if we call next() after every middleware.
+
+//if the order is like, 
+//         middleware 1 -> middleware 2 -> router -> middleware 3. This wont work after router, eventhough we call next().
+//             Because next wont work after a response. In router we will give res.send. So, final will be the response.
+
+
+
+
+
+
+
+
+
 //                  Example: Custom Logging Middleware
 //                  ----------------------------------
 
@@ -182,9 +199,21 @@
                                                    // Body: undefined
 
 
-//  Eg:- without middleware:-
+//  Eg:- with middleware:-
            const express = require ('express')
            const app = express()
+
+           const cors = require('cors');    
+           app.use(cors())                          // CORS stands for Cross-Origin Resource Sharing.
+                                                    // It’s a security feature built into browsers to block requests from different origins (different domains, ports, or protocols) unless the server allows it.
+                                                        //Eg:- Your frontend is running on: http://127.0.0.1:5500
+                                                        //     Your backend/server (Express) is running on: http://localhost:3000
+                                                        //     Eventhough, both are in same computer, they are in different ports. 
+                                                        //     So, the browser considered they are from different origin. And it will blocks fetch request unless we allow it
+                                                        //     We can allow it by adding 'app.use(cors())', in the code.
+                                                        //     This will allow our backend to accept requests from other origins (like your frontend).
+
+
 
             // Middleware to parse JSON and form data
                app.use(express.json()); // for JSON

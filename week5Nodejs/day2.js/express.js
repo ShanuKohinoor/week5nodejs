@@ -102,7 +102,7 @@
 
 
              app.use((req,res)=>{                                //By using 'app.use',we can handle unmatched route
-                res.status(404).send('Invalid Route')           //If we dont mention statu(404) here, we will get status ok. but we will get Invalid Route  as well. So,we must have to write status(404) 
+                res.status(404).send('Invalid Route')           //If we dont mention status(404) here, we will get status ok. but we will get Invalid Route  as well. So,we must have to write status(404) 
              })
 
                 app.use((req,res,next)=>{

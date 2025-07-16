@@ -5,7 +5,7 @@
 // package.json:- 
 
 
-// utility:- nodemon  :- which helps to run changes automatically. we dont need to typeevery time. Eg:- if we chane anything in our text or somethimg in node.js, we have to run by writing like this (node server.js) and press enter button. But with help of nodemon, we dont want to write everytime. It will run automatically.
+// utility:- nodemon  :- which helps to run changes automatically. we dont need to type every time. Eg:- if we chane anything in our text or somethimg in node.js, we have to run by writing like this (node server.js) and press enter button. But with help of nodemon, we dont want to write everytime. It will run automatically.
 //                          *  we can get it by installing nodemon utility.
 //                          *  we must to install it globally. 
 //                                        -  npm install -g nodemon

@@ -115,7 +115,7 @@ Remote Server :- It is for deployement(live/production)
  Port is a number used by our computer to talk with specific app.
  Our computer has only one IP address and it runs many apps. So with the help of port, incoming request handled to the specific app.
  We have many servers in a single computer. To identify that, use port. 
- Different sort, listen different server.
+ Different port, listen different server.
  Port is a virtual door.
 
 
@@ -205,7 +205,7 @@ server.listen(3000, () => {
                 Eg:- PUT/user/5
                       { "name": "Shanu", "email": "shanu@example.com" }
 
-                       *Here replace user 5'sentire record.
+                       *Here replace user 5's entire record.
 
       4. PATCH :- To partially  update existing data.
               * Change data.
@@ -214,7 +214,7 @@ server.listen(3000, () => {
                Eg:- PATCH/user/5
                     { "email": "newemail@example.com" }
 
-      5. DELETE :- To delete res0urce of server.
+      5. DELETE :- To delete resource of server.
               * Removes data
 
               Eg:- DELETE /comment/15 -> Deletes comment with ID 15.
@@ -235,7 +235,7 @@ server.listen(3000, () => {
            
 
 
-                                   ◦ Structure of the Request
+                                  ◦ Structure of the Request
                                         - URL or Endpoint  
                                         - Headers  
                                         - Body  
@@ -295,7 +295,7 @@ server.listen(3000, () => {
 
 <!--
 2) HEADER:- 
-            HTTP HEADERS are key-value pairs send withthe request to give extra information to the server. 
+            HTTP HEADERS are key-value pairs send with the request to give extra information to the server. 
             * Header is used to give extra or meta data.
          
             * URL tells what you want to the server. whereas,
