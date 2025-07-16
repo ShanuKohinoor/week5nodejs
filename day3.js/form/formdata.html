@@ -1,0 +1,100 @@
+
+
+<!--This  method is using JavaScript with FormData and fetch():
+
+                     const formData = new FormData(form);
+                     fetch('/login', { method: 'POST', body: formData });
+
+
+
+   *  Extracts form data manually using new FormData(form)
+   *  Sends it using fetch() without reloading the page
+
+
+*   for this,files are in this format    
+
+                                DAY3.JS/
+                                    ├── public(form)/
+                                    │   └── formdata.html     :- HTML form (without JavaScript)
+                                    ├── server3.js               :- Express server to handle POST
+
+
+*   Refer server3.js
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data</title>
+</head>
+<body>
+    
+<h1>Form Data</h1>
+<form id="form">
+
+    <label>User Name</label>
+    <input type="text" name="userName"  required >
+    <br>
+    <br>
+
+    <label>Password</label>
+    <input type="password" name="password" required>
+    <br>
+    <br>
+
+    <button type="submit">Login</button>
+    <br>
+    <br>
+
+    <p id="successMessage"></p>
+
+</form>
+
+
+<script>
+    const form = document.getElementById("form")
+    const response = document.getElementById("successMessage")
+
+
+   form.addEventListener('submit',(e)=> {
+    e.preventDefault();                    // stop the page from reloading
+    
+
+
+   const formData = new FormData(form)     // creates new formData object
+                                             //  which helps to get whole data in the form. It will get automatically.
+                                             // can easily sent to server using fetch()
+
+   const params = new URLSearchParams(formData)   // convert formData to URLSearchParms
+
+
+   // send using fetch
+  fetch('http://localhost:3001/login',{
+    method : 'POST',
+    headers: {
+        'Content-type': 'application/x-www-form-urlencoded'
+    },
+    body : params.toString()          // it will be like: username=Shanu&password=12345
+  })      
+  
+  
+  .then(res => res.text())
+  .then(data =>{
+    response.textContent = data;     // show server response
+
+  })
+  .catch(err=>{
+    response.textContent = 'Error text:', err.message;
+  })
+
+})
+
+</script>
+
+
+</body>
+</html>

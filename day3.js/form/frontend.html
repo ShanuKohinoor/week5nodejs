@@ -1,0 +1,50 @@
+    <!-- This is classic form submission(normal way by using 'action' and 'method')
+          
+                     <form method="POST" action="/login">
+
+
+     * Files are in this format:-
+     
+                                DAY3.JS/
+                                    ├── form/
+                                    │   └── frontend.html     :- HTML form (without JavaScript)
+                                    ├── server2.js               :- Express server to handle POST
+*  Refer server2.js
+
+    -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+</head>
+<body>
+
+
+    <h1>Login Form</h1>
+     <form   method="post"  action="http://localhost:3000/login">
+
+
+    <!--User name-->
+    <label>Name</label>
+    <input type="text"   name="userName"  required>
+    <br>
+    <br>
+
+    <!--Password-->
+    <label>Password</label>
+    <input type="password"   name="password"  required>
+    <br>
+    <br>
+
+    <!--Button to submit form-->
+    <button type="submit">Submit</button>
+
+</form>
+
+</body>
+</html>
